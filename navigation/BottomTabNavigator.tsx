@@ -5,8 +5,9 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import TabOneScreen from '../screens/TabQRScanner';
+import TabTwoScreen from '../screens/TabListaPosudbi';
+import TabListaAlata from '../screens/TabListaAlata';
 import Login from '../screens/Login';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
@@ -18,19 +19,26 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Login"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      tabBarOptions={{ activeTintColor: "green",
+        style: {
+          
+
+      }
+    }}
+      >
       <BottomTab.Screen
         name="TabOne"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="texture" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="pageview" color={color} />,
         }}
       />
+    
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="TabListaAlata"
+        component={TabListaAlata}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="texture" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="storage" color={color} />,
         }}
       />
      
@@ -54,7 +62,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ headerTitle: 'Skeniranje alata' }}
       />
     </TabOneStack.Navigator>
   );
